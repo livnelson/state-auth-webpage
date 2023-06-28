@@ -1,5 +1,5 @@
 .legend {
-  width: 800px;
+  max-width: 800px;
   margin: auto;
   margin-top: 5em;
   padding-top: 30px;
@@ -12,7 +12,6 @@
   flex-direction: row;
   align-items: center;
   margin: auto;
-
   width: 600px;
 }
 .legend-color {

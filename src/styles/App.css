@@ -8,7 +8,7 @@ p {
 
 .section-header {
   text-align: center;
-  margin-top: 3em;
+  /* margin-top: 3em; */
   margin-bottom: 0;
 }
 
@@ -18,4 +18,18 @@ p {
   margin-top: 0.5em;
   margin-bottom: 3em;
   width: 780px;
+}
+
+.info-box {   
+  max-width: 800px;
+  margin: auto;
+  margin-top: 5em;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  background-color: #F1F3F4;
+}
+
+.info-box-description {
+  max-width: 680px;
+  margin: auto;
 }

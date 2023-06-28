@@ -3,9 +3,6 @@ import '../styles/DegreePrograms.css'
 
 
 function DegreePrograms({ degreeData }) {
-  // const [stateList, setStateList] = useState({})
-  // const googleURL = "https://script.google.com/macros/s/AKfycbwyg7lpU1JqCDWtwh4OdSBQyJ7MmkfuDwqo6BKiHDxAkZuJrrnCUGEklrV0XTBN1gmcPQ/exec"
-
   const [selectedTitle, setSelectedTitle] = useState(null)
   const [selectedStates, setSelectedStates] = useState([])
 
