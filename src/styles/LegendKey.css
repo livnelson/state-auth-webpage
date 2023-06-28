@@ -1,9 +1,11 @@
 .legend {
-  max-width: 800px;
+  width: 85vw;
   margin: auto;
   margin-top: 5em;
   padding-top: 30px;
   padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: #F1F3F4;
 }
 
@@ -12,10 +14,9 @@
   flex-direction: row;
   align-items: center;
   margin: auto;
-  width: 600px;
+  max-width: 600px;
 }
 .legend-color {
-  flex-grow: 1; 
   min-height: 60px;
   max-height: 60px;
   min-width: 10px;
@@ -25,7 +26,6 @@
 .legend-info{
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   margin-top: 0;
   margin-bottom: 0;
   padding: 0px;

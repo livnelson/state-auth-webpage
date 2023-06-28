@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/FullerAuth.css'
 
 function FullerAuth() {
   return (

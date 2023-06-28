@@ -1,4 +1,4 @@
-.app {   
+.app {
   margin-bottom: 140px;
 }
 
@@ -8,20 +8,29 @@ p {
 
 .section-header {
   text-align: center;
-  /* margin-top: 3em; */
   margin-bottom: 0;
 }
 
 .section-description {
   text-align: center;
-  margin:  auto;
+  margin: auto;
   margin-top: 0.5em;
   margin-bottom: 3em;
-  width: 780px;
+  max-width: 90%; /* Adjust the max-width for better responsiveness */
 }
 
-.info-box {   
-  max-width: 800px;
+.auth-description {
+  font-family: 'EB Garamond', sans-serif;
+  width: 780px;
+  margin: auto;
+  text-align: center;
+  margin-top: 5em;
+  margin-bottom: 40px;
+  max-width: 90%; /* Adjust the max-width for better responsiveness */
+}
+
+.info-box {
+  max-width: 90%; /* Adjust the max-width for better responsiveness */
   margin: auto;
   margin-top: 5em;
   padding-top: 30px;
@@ -30,6 +39,7 @@ p {
 }
 
 .info-box-description {
-  max-width: 680px;
+  max-width: 90%; /* Adjust the max-width for better responsiveness */
   margin: auto;
+  text-align: center;
 }
