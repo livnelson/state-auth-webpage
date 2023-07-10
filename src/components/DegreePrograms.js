@@ -1,22 +1,17 @@
 import React, { useState } from 'react'
+import ProgramDetails from './ProgramDetails'
 import '../styles/DegreePrograms.css'
-
 
 function DegreePrograms({ degreeData }) {
   const [selectedTitle, setSelectedTitle] = useState(null)
   const [selectedStates, setSelectedStates] = useState([])
+  const [showDetails, setShowDetails] = useState(false)
 
   const handleTitleClick = (title) => {
-    if (selectedTitle === title) {
-      // If the clicked title is already selected, clear the selection
-      setSelectedTitle(null)
-      setSelectedStates([])
-    } else {
-      // Otherwise, update the selected title and states
-      const { stateList } = degreeData[title]
-      setSelectedTitle(title)
-      setSelectedStates(stateList)
-    }
+    const { stateList } = degreeData[title]
+    setSelectedTitle(selectedTitle === title ? null : title)
+    setSelectedStates(selectedTitle === title ? [] : stateList)
+    setShowDetails(selectedTitle !== title)
   }
 
   console.log(degreeData)
@@ -26,20 +21,25 @@ function DegreePrograms({ degreeData }) {
     <div className='degree-section'>
       <h2 className='section-header'>Our Degree Programs</h2>
       <p className='section-description'>Click on an online degree program button below to search authorizations/approvals by state.</p>
-      <div >
-        {/* <DegreeButtons degreeData={degreeData} degreeTitle={degreeTitle} handleTitleClick={handleTitleClick} selectedTitle={selectedTitle} selectedStates={selectedStates} /> */}
-      </div>
       <div className='program-buttons'>
         {Object.keys(degreeData).map((title) => (
           <div key={title}>
-            <button className='program-button' onClick={() => handleTitleClick(title)}>{degreeData[title].title}</button>
-            {selectedTitle === title && (
+            <button className='big-button' onClick={() => handleTitleClick(title)}>{degreeData[title].title}</button>
+            {selectedTitle === title && showDetails ? (
               <div className='state-list'>
                 {selectedStates.length > 0 && (
-                  <p><strong>Available States:</strong> {selectedStates.map((state) => state.toUpperCase()).join(', ')}</p>
+                  <div className='program-details-modal'>
+                    <ProgramDetails
+                      degreeData={degreeData}
+                      selectedTitle={selectedTitle}
+                      selectedStates={selectedStates}
+                      showDetails={showDetails}
+                      setShowDetails={setShowDetails}
+                    />
+                  </div>
                 )}
               </div>
-            )}
+            ) : null}
           </div>
         ))}
       </div>

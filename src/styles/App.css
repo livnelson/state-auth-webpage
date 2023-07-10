@@ -43,3 +43,40 @@ p {
   margin: auto;
   text-align: center;
 }
+
+.button {
+  background-color: #CA8A35;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  margin: 15px;
+  margin-left: 0;
+  height: 40px;
+  width: 160px;
+
+}
+
+.big-button {
+  font-size: 0.85em;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #CA8A35;
+  border: none;
+  border-radius: 7px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  width: 300px;
+  height: 50px;
+  line-height: 1;
+}
+
+.big-button:hover {
+  background-color: #CB8E31;
+}
+
+.page-break {
+  height: 300px;
+}

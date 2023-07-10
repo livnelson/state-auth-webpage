@@ -3,7 +3,7 @@ import LegendKey from './LegendKey'
 
 function Legend({ legendData }) {
 
-  //MAPS LEGEND DETAILS
+  //Map legend details
   const legend = legendData.map((data) => {
     return (
       <LegendKey key={data.id}

@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import Legend from '../components/Legend'
 import FullerAuth from './FullerAuth'
+import USStates from './USStates'
 import FundingInfo from './FundingInfo'
+import Moving from './Moving'
 import DegreePrograms from './DegreePrograms'
+import Legend from './Legend'
 import '../styles/App.css'
 import '../styles/LegendKey.css'
-import Moving from './Moving'
-
 
 function App() {
   const [legendData, setLegendData] = useState([])
   const [degreeData, setDegreeData] = useState({})
   const [stateData, setStateData] = useState([])
+  const [stateDetails, setStateDetails] = useState({})
 
   const googleURL = "https://script.google.com/macros/s/AKfycbwyg7lpU1JqCDWtwh4OdSBQyJ7MmkfuDwqo6BKiHDxAkZuJrrnCUGEklrV0XTBN1gmcPQ/exec"
 
   useEffect(() => {
-    //FETCH LEGEND DETAILS
+    //Fetch Legend Details
     fetch(googleURL + '?action=getlegend')
       .then(res => res.json())
       .then(resData => {
@@ -24,49 +25,50 @@ function App() {
         setLegendData(resData)
       })
 
-    //FETCH DEGREE PROGRAMS
+    //Fetch Degree Programs
     fetch(googleURL + '?action=getdegrees')
       .then(res => res.json())
       .then(resData => {
-        // console.log(resData)
+        console.log(resData)
         setDegreeData(resData)
       })
 
-    //FETCH DEGREE PROGRAMS WITH STATES
+    //Fetch Degree Programs with States
     fetch(googleURL + '?action=getdegrees')
-    .then(res => res.json())
-    .then(resData => {
-      // console.log(resData);
-  
-      const separatedData = {};
-  
-      Object.keys(resData).forEach(title => {
-        const id = resData[title].id;
-        const stateList = resData[title].stateList;
-  
-        separatedData[title] = { id, stateList };
-      });
-  
-      // console.log(separatedData);
-      setStateData(separatedData)
-    });
+      .then(res => res.json())
+      .then(resData => {
+        console.log(resData)
+
+        const separatedData = {}
+
+        Object.keys(resData).forEach(title => {
+          const id = resData[title].id
+          const stateList = resData[title].stateList
+
+          separatedData[title] = { id, stateList }
+        })
+        // console.log(separatedData);
+        setStateData(separatedData)
+      })
+
+    //Fetch State details
+    fetch(googleURL)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setStateDetails(data)
+      })
   }, [])
-
-  fetch(googleURL) 
-    .then(res => res.json()) 
-    .then(data => {
-      console.log(data)
-    })
-  
-
 
   return (
     <div className="app">
       <FullerAuth />
-      <Legend legendData={legendData} />
+      <USStates stateDetails={stateDetails} legendData={legendData} />
       <FundingInfo />
-      <DegreePrograms degreeData={degreeData} stateData={stateData} />
       <Moving />
+      <div className='page-break' />
+      <DegreePrograms degreeData={degreeData} stateData={stateData} />
+      <Legend legendData={legendData}/>
     </div>
   )
 }
